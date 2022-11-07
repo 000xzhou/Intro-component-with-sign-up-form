@@ -1,0 +1,234 @@
+:root {
+    --clr-primary-red: hsl(0, 100%, 74%);
+    --clr-primary-green: hsl(154, 59%, 51%);
+    --clr-accent-blue: hsl(248, 32%, 49%);
+    --clr-neutral-darkBlue: hsl(249, 10%, 26%);
+    --clr-neutral-grayishBlue: hsl(246, 25%, 77%);
+
+    --ff-primary: 'Poppins', sans-serif;
+
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+
+}
+
+/* ===================================================================  */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font:inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-family: var(--ff-primary);
+    background-color: var(--clr-primary-red);
+    background-image: url(images/bg-intro-desktop.png);
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+/*reduce animation to almost nothing if they got reduce motion on*/
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================================  */
+
+.fw-400 {
+    font-weight: var(--fw-400);
+}
+.fw-500 {
+    font-weight: var(--fw-500);
+}
+.fw-600 {
+    font-weight: var(--fw-600);
+}
+.fw-700 {
+    font-weight: var(--fw-700);
+}
+
+/* =======================================================  */
+
+.container {
+    /* Change the width later to fit  */
+    --max-width: 90rem;
+    --padding: 2rem;
+    width: min(var(--max-width), 100% - (var(--padding) *2));
+    margin-inline: auto;
+    
+    
+}
+
+/* Don't like the 375px change.... */
+@media (min-width: 376px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        height: 100vh;
+    }
+    .right-area,
+    .left-area {
+    width: 33%;
+    }
+    .form-textbox {
+        border: 0;
+    }
+    .title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .form-section {
+        padding-block: 4rem;
+    }
+    .form-textbox {
+        border: 1px solid hsla(246, 25%, 77%, 0.5);
+    }
+    .left-area {
+        text-align: center;
+
+    }
+    .title {
+        padding: .5rem;
+        font-size: 1.5rem;
+    }
+    .left-text {
+        padding-block: 1.5rem;
+    }
+
+}
+
+
+.left-area {
+    color: white;
+}
+.free-7days {
+    background-color: var(--clr-accent-blue);
+    border-radius: 5px;
+    text-align: center;
+    padding: .5rem 2rem;
+    color: white;
+    margin-block: 1.5rem;
+    box-shadow: 0 .5rem hsla(249, 10%, 26%, 0.25);
+    
+}
+.form-section {
+    margin-bottom: 3rem;
+}
+
+.red-text {
+    color: var(--clr-primary-red);
+}
+.form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 .5rem hsla(249, 10%, 26%, 0.25);
+
+}
+.form-textbox {
+    padding: .5em;
+    border-radius: 5px;
+    width: 100%;
+}
+.button {
+    background-color: var(--clr-primary-green);
+    padding: .5em;
+    border-radius: 5px;
+    border: 1px double hsl(154, 62%, 40%);
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+
+}
+.terms {
+    color: var(--clr-neutral-grayishBlue);
+    font-size: 10px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: hsla(154, 59%, 51%, 0.5);
+}
+.input-area {
+    /* border: 1px solid saddlebrown; */
+    position: relative;
+}
+.error-looks {
+    display: none;
+} 
+.form-textbox:focus-visible {
+    outline: 2px solid var(--clr-neutral-grayishBlue);
+}
+
+/* .input-area.error input {
+    outline: 2px solid var(--clr-primary-red);
+    border: 2px solid red;
+
+} */
+
+.error-text {
+    font-size: 10px;
+    color: var(--clr-primary-red);
+    float: right;
+    /* border: 1px solid saddlebrown; */
+}
+.error-icon {
+    position: absolute;
+    margin: 0;
+    top: .5rem;
+    right: 1.5rem;
+}
+.invalid {
+    /* border-color: red; */
+    border: 2px solid var(--clr-primary-red);
+    /* background-color: red; */
+}
