@@ -9,8 +9,7 @@ const password = $('#password')
 
 
 // email format... not working? it keep coming out false 
-const emailRegExp =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const emailRegExp = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/
 
 
 form.on('submit', (e)=> {
@@ -20,40 +19,43 @@ form.on('submit', (e)=> {
     var emailValid = this.email.value === 0 || this.email.value === "" 
     var passwordValid = this.password.value === 0 || this.password.value === "" 
 
+    $('.error').remove()
+
+
     if(lnameValid) {
         lname.addClass('invalid')
-        lname.after('<img id="lnameIconError" class="error-icon" src="images/icon-error.svg" alt="Error">')
-        lname.after('<div id="lnameTextError" class="error-text">Last Name cannot be blank</div>')
+        lname.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')
+        lname.after('<div class="error error-text">Last Name cannot be blank</div>')
     } else {
         lname.removeClass('invalid')
-        $('#lnameIconError').remove()
-        $('#lnameTextError').remove()
     }
     if(fnameValid) {
         fname.addClass('invalid')
-        fname.after('<img id="fnameIconError" class="error-icon" src="images/icon-error.svg" alt="Error">')
-        fname.after('<div id="fnameTextError" class="error-text">First Name cannot be blank</div>')
+        fname.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')
+        fname.after('<div class="error error-text">First Name cannot be blank</div>')
     } else {
         fname.removeClass('invalid')
-        $('#fnameIconError').remove()
-        $('#fnameTextError').remove()
     }
+
     if(emailValid) {
         email.addClass('invalid')
-        email.after('<img id="emailIconError" class="error-icon" src="images/icon-error.svg" alt="Error">')
-        email.after('<div id="emailTextError" class="error-text">Email cannot be blank</div>')
-        // console.log(emailRegExp.test(email.value))
+        email.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')
+        email.after('<div class="error error-text">Email cannot be blank</div>')
     } else {
-        $('#emailIconError').remove()
-        $('#emailTextError').remove()
-        // console.log(emailRegExp.test(email.value))
+        // still can't get this to work
+        // var validEmail = emailRegExp.test(email)
+        // if(!validEmail) {
+        //     email.after('<span class="error">Enter a valid email</span>')
+        // } else {
+        //     email.removeClass('invalid')
+        // }
+        email.removeClass('invalid')
     }
     if(passwordValid) {
         password.addClass('invalid')
-        password.after('<img id="passwordIconError" class="error-icon" src="images/icon-error.svg" alt="Error">')
-        password.after('<div id="passwordTextError" class="error-text">Password cannot be blank</div>')
+        password.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')
+        password.after('<div class="error error-text">Password cannot be blank</div>')
     } else {
-        $('#passwordIconError').remove()
-        $('#passwordTextError').remove()
+        password.removeClass('invalid')
     }
 })
