@@ -1,3 +1,3 @@
 # Intro-component-with-sign-up-form
-It's missing the email validation.
-I'm doing something wrong there.
+HTML / CSS / Jquery
+Very simple form that display error when the submit is press and it's empty or format wrong

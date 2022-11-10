@@ -9,7 +9,7 @@ const password = $('#password')
 
 
 // email format... not working? it keep coming out false 
-const emailRegExp = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/
+const emailRegExp = /^[A-Za-z0-9._%+-]{0,63}@(?:[A-Za-z0-9-]{1,63}\.){1,125}[A-Za-z]{2,63}$/
 
 
 form.on('submit', (e)=> {
@@ -39,17 +39,17 @@ form.on('submit', (e)=> {
 
     if(emailValid) {
         email.addClass('invalid')
-        email.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')
         email.after('<div class="error error-text">Email cannot be blank</div>')
+        email.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')  
     } else {
-        // still can't get this to work
-        // var validEmail = emailRegExp.test(email)
-        // if(!validEmail) {
-        //     email.after('<span class="error">Enter a valid email</span>')
-        // } else {
-        //     email.removeClass('invalid')
-        // }
-        email.removeClass('invalid')
+        var validEmail = emailRegExp.test(email.val())
+            if (!validEmail) {
+                email.addClass('invalid')
+                email.after('<div class="error error-text">Email is in wrong format</div>')
+                email.after('<img class="error error-icon" src="images/icon-error.svg" alt="Error">')  
+              } else {
+                email.removeClass('invalid')
+              }
     }
     if(passwordValid) {
         password.addClass('invalid')
