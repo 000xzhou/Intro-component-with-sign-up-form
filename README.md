@@ -50,4 +50,4 @@ Learn that there is before and after and use that in the end.
 ## Author
 
 - Website - [XZ](https://github.com/000xzhou)
-- Frontend Mentor - [@HazukiMiki](https://www.frontendmentor.io/profile/HazukiMiki)
+- Frontend Mentor - [@000xzhou](https://www.frontendmentor.io/profile/000xzhou)
